@@ -207,4 +207,72 @@ int main(){
 }
 ```
 
+<h1>Nested Sets:</h1>
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    /*map<set<int>,int> m;
+    set<int> s1={1,2,3};
+    set<int> s2={2,3};
+    cout<<(s1<s2);*/
+   map<pair<string,string>,vector<int>>m;
+   set<pair<int,int>>st;
+   int n;
+   cin>>n;
+   for(int i=0;i<n;++i){
+    string fn,ln;
+    int ct;
+    cin>>fn>>ln>>ct;
+    for(int j=0;j<ct;j++){
+        int x;
+        cin>>x;
+        m[{fn,ln}].push_back(x);
+    }
+   }
+   for(auto &pr : m){
+    auto &full_name = pr.first;
+    auto &list=pr.second;
+    cout<<full_name.first<<" "<<full_name.second<<endl;
+    cout<<list.size()<<endl;
+    for(auto &element: list){
+        cout<<element<<" ";
+    }
+    cout<<endl;
+   }
+}
+```
+
+<h2>2.Nested Sets</h2>
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    map<int,multiset<string>>marks_map;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;++i){
+        int marks;
+        string name;
+        cin>>name>>marks;
+        marks_map[marks].insert(name);
+    }
+    auto cur_it=--marks_map.end();
+    while(true){
+        auto &students = (*cur_it).second;
+        int marks =(*cur_it).first;
+        for(auto student: students){
+            cout<<student<<" "<<marks<<endl;
+        }
+        if(cur_it==marks_map.begin()) break;
+        cur_it--;
+    }
+}
+```
+
+
 
