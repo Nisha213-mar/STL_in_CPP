@@ -362,7 +362,7 @@ int main(){
 }
 ```
 
-<h1>Queue</h1>
+<h1>9 Queue</h1>
 
 ```cpp
 #include<bits/stdc++.h>
@@ -379,6 +379,122 @@ int main(){
         cout<<q.front()<<endl;
         q.pop();
     }
+}
+```
+
+<h1>10 Comparator in STL</h1>
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+bool cmp(pair<int,int> a,pair<int,int> b){
+    if(a.first != b.first){
+        return a.first<b.first;
+    }
+    return a.second>b.second;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    vector<pair<int,int>> a(n);
+    for(int i=0;i<n;i++){
+        cin>>a[i].first>>a[i].second;
+    }
+    sort(a.begin(),a.end(),cmp);
+    for(int i=0;i<n;i++){
+        cout<<a[i].first<<" "<<a[i].second<<endl;
+
+    }
+    cout<<endl;
+    return  0;
+}
+```
+
+<h1>11. Inbuilt Sort in STL</h1>
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int> a(n);
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    sort(a.begin()+2,a.end());
+    for(int i=0;i<n;++i){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+```
+
+<h1>12. Upper bond in STL</h1>
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int> a(n);
+    for(int i=0;i<n;++i){
+        cin>>a[i];
+    }
+    sort(a.begin(),a.end());
+    for(int i=0;i<n;++i){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    auto it=a.upper_bond();
+    if(it==a.end()){
+        cout<<"Not found";
+        return 0;
+    }
+    cout<<(*it)<<endl;
+}
+```
+
+<h1>13.Functions in STL</h1>
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int> v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    int min=*min_element(v.begin(),v.end());
+    cout<<min<<endl;
+    int max=*max_element(v.begin(),v.end());
+    cout<<max<<endl;
+    int sum=accumulate(v.begin(),v.end(),0);
+    cout<<sum<<endl;
+    int ct=count(v.begin(),v.end(),2);
+    cout<<ct<<endl;
+   /* int element=find(v.begin(),v.end(),2);
+    cout<<element<<endl;*/
+    auto it=find(v.begin(),v.end(),10);
+    if(it != v.end())
+    cout<<*it<<endl;
+    else
+    cout<<"Element not found\n";
+    reverse(v.begin()+2,v.end());
+    for(auto val:v){
+        cout<<val<<" ";
+    }
+    cout<<endl;
+    
+        return 0;
 }
 ```
 
